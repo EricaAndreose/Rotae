@@ -301,7 +301,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border: 1px solid var(--rule); border-radius: var(--radius); overflow: auto; max-height: 520px;
   background: var(--paper-raised);
 }
-.datatable{ width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.datatable{ width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.83rem; }
 .datatable thead th{
   position: sticky; top: 0; z-index: 1; text-align: left; font-family: var(--font-mono); font-weight: 500;
   font-size: 0.7rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-soft);
@@ -309,11 +309,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   white-space: nowrap;
 }
 .datatable td{
-  padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule-soft); vertical-align: top;
+  padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule-soft); vertical-align: top; white-space: nowrap;
 }
+.datatable td:nth-child(3){ white-space: normal; min-width: 14ch; }
 .datatable tr.datatable-group-start td{ border-top: 2px solid var(--rule); }
 .datatable .dt-sub{ color: var(--ink-faint); font-size: 0.75rem; }
-.datatable .dt-url code{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
+.datatable .dt-url code{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); white-space: pre; }
 .datatable .dt-yes{ color: var(--verdigris-dark); }
 .datatable .dt-no{ color: var(--ink-faint); }
 .datatable .dt-actions{ display:flex; gap: 0.4em; white-space: nowrap; }
