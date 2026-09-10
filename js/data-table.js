@@ -61,7 +61,6 @@
       if (ms.siglum !== lastSiglum){ tr.className = 'datatable-group-start'; lastSiglum = ms.siglum; }
 
       var url = page.url || '';
-      var shortUrl = url.length > 46 ? url.slice(0, 22) + '…' + url.slice(-20) : url;
 
       tr.innerHTML =
         '<td><b>' + escapeHTML(ms.siglum) + '</b><br><span class="dt-sub">' + escapeHTML(ms.institution) + '</span></td>' +
@@ -69,7 +68,7 @@
         '<td>' + escapeHTML(page.title || '—') + '</td>' +
         '<td>' + escapeHTML(page.media || '—') + '</td>' +
         '<td>' + (page.embeddable ? '<span class="dt-yes">sì</span>' : '<span class="dt-no">no</span>') + '</td>' +
-        '<td class="dt-url" title="' + escapeHTML(url) + '">' + (url ? '<code>' + escapeHTML(shortUrl) + '</code>' : '—') + '</td>' +
+        '<td class="dt-url">' + (url ? '<code>' + escapeHTML(url) + '</code>' : '—') + '</td>' +
         '<td class="dt-actions"></td>';
 
       var actions = tr.querySelector('.dt-actions');

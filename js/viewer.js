@@ -70,7 +70,18 @@ window.IsidoroViewer = (function(){
   // adatta la vista non appena le dimensioni naturali sono note.
   PanZoom.prototype.onImageChanged = function(){
     var self = this;
-    function ready(){ self.updateBounds(); self.fit(); }
+    function ready(){
+      // Se l'immagine è già in cache, "load" (o img.complete) può scattare
+      // in modo sincrono, prima ancora che il pannello sia stato inserito
+      // nel DOM (es. costruito dentro un elemento ancora staccato): in quel
+      // momento clientWidth/clientHeight varrebbero 0 e il "fit" verrebbe
+      // calcolato su un riquadro fittizio, con uno zoom iniziale minuscolo.
+      // Un doppio rAF rimanda il calcolo al frame successivo, quando il
+      // layout reale del pannello è garantito.
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ self.updateBounds(); self.fit(); });
+      });
+    }
     if (this.img.complete && this.img.naturalWidth){ ready(); }
     else { this.img.addEventListener('load', ready, { once: true }); }
   };

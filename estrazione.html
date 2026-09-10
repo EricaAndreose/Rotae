@@ -63,59 +63,121 @@
       <h2>Che tipo di output produce</h2>
       <span class="section-num">§ 04</span>
     </div>
-    <p class="section-intro">Il punto di partenza qui sotto è un'immagine <strong>reale del corpus</strong> (Ms. 422, Laon, f. 7 recto — "<a href="corpus.html">Roue de l'année et des saisons</a>"), non uno schema generico. La pipeline vera (DSV + SAM + regionalizzazione) gira come codice Python e non può essere eseguita in questa pagina statica: i due pannelli con le fasi di estrazione mostrano quindi una <strong>sovrapposizione illustrativa</strong> — la forma attesa del risultato, disegnata sopra l'immagine reale — non l'output realmente calcolato da quel manoscritto.</p>
+    <p class="section-intro">Il punto di partenza qui sotto è un'immagine <strong>reale del corpus</strong> (Ms. 422, Laon, f. 7 recto): la rota "Annus", con le quattro stagioni, i quattro punti cardinali e le quattro qualità elementari. Le due sovrapposizioni non sono uno schema generico: sono una <strong>trascrizione fatta leggendo davvero questa pagina</strong> — non però l'output automatico della pipeline (DSV + SAM + regionalizzazione, che gira come codice Python e non in questa pagina statica): qui il tracciato e le etichette sono stati letti e ricostruiti a mano, ma corrispondono a quanto è effettivamente disegnato e scritto sul folio.</p>
 
     <div class="showcase">
       <div class="showcase-panel">
         <div class="frame">
-          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="Ms. 422, Laon, f. 7 recto — Roue de l'année et des saisons" style="width:100%;height:100%;object-fit:contain;">
+          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="Ms. 422, Laon, f. 7 recto — rota Annus, con stagioni, punti cardinali e qualità elementari" loading="lazy">
         </div>
         <div class="cap"><b>Immagine di partenza</b>reale — Ms. 422 (Laon), f. 7 recto</div>
       </div>
 
       <div class="showcase-panel" style="position:relative;">
         <div class="frame">
-          <span class="badge-illus">sovrapposizione illustrativa</span>
-          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%" role="img" aria-label="Sovrapposizione illustrativa del tracciato vettoriale atteso" style="position:absolute;inset:0;">
-            <circle cx="50" cy="50" r="42" fill="none" stroke="#5E7350" stroke-width="1"/>
-            <circle cx="50" cy="50" r="29" fill="none" stroke="#5E7350" stroke-width="1"/>
-            <circle cx="50" cy="50" r="13" fill="none" stroke="#5E7350" stroke-width="1"/>
-            <line x1="50" y1="8" x2="50" y2="92" stroke="#2C4A66" stroke-width="0.8"/>
-            <line x1="8" y1="50" x2="92" y2="50" stroke="#2C4A66" stroke-width="0.8"/>
-            <circle cx="50" cy="35" r="0.8" fill="#B08A3E"/>
-            <circle cx="50" cy="21" r="0.8" fill="#B08A3E"/>
-            <circle cx="50" cy="50" r="0.8" fill="#B08A3E"/>
-            <circle cx="65" cy="50" r="0.8" fill="#B08A3E"/>
-            <circle cx="79" cy="50" r="0.8" fill="#B08A3E"/>
+          <span class="badge-illus">lettura manuale, non automatica</span>
+          <img class="showcase-clarified showcase-img-stack" src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" loading="lazy">
+          <svg viewBox="0 0 754 1202" role="img" aria-label="Tracciato vettoriale ricostruito dell'anello esterno e delle quattro lunette della rota" class="showcase-overlay">
+            <circle cx="377" cy="420" r="260" fill="none" stroke="#A3402C" stroke-width="6"/>
+            <circle cx="377" cy="275" r="161" fill="#2C4A66" fill-opacity="0.12" stroke="#2C4A66" stroke-width="3"/>
+            <circle cx="522" cy="420" r="161" fill="#B08A3E" fill-opacity="0.14" stroke="#B08A3E" stroke-width="3"/>
+            <circle cx="377" cy="565" r="161" fill="#2C4A66" fill-opacity="0.12" stroke="#2C4A66" stroke-width="3"/>
+            <circle cx="232" cy="420" r="161" fill="#B08A3E" fill-opacity="0.14" stroke="#B08A3E" stroke-width="3"/>
+            <circle cx="377" cy="420" r="42" fill="#EFE8D8" fill-opacity="0.85" stroke="#5E7350" stroke-width="3"/>
+            <g fill="#B08A3E">
+              <circle cx="377" cy="160" r="6"/>
+              <circle cx="637" cy="420" r="6"/>
+              <circle cx="377" cy="680" r="6"/>
+              <circle cx="117" cy="420" r="6"/>
+              <circle cx="508" cy="289" r="5"/>
+              <circle cx="508" cy="551" r="5"/>
+              <circle cx="246" cy="551" r="5"/>
+              <circle cx="246" cy="289" r="5"/>
+            </g>
           </svg>
         </div>
-        <div class="cap"><b>Segno estratto (atteso)</b>linee vettoriali + nodi delle regioni chiuse, disegno illustrativo</div>
+        <div class="cap"><b>Segno estratto</b>anello esterno + 4 lunette, lette sul folio (non l'output della pipeline)</div>
       </div>
 
       <div class="showcase-panel" style="position:relative;">
         <div class="frame">
-          <span class="badge-illus">sovrapposizione illustrativa</span>
-          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%" role="img" aria-label="Sovrapposizione illustrativa del rilevamento del testo atteso" style="position:absolute;inset:0;">
-            <g fill="rgba(36,31,23,0.55)" stroke="#A3402C" stroke-width="0.6">
-              <rect x="40" y="6" width="20" height="7"/>
-              <rect x="38" y="88" width="24" height="7"/>
-              <rect x="6" y="47" width="22" height="7"/>
-              <rect x="74" y="47" width="22" height="7"/>
+          <span class="badge-illus">lettura manuale, non automatica</span>
+          <img class="showcase-clarified showcase-img-stack" src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" loading="lazy">
+          <svg viewBox="0 0 754 1202" role="img" aria-label="Etichette latine trascritte, con la loro posizione approssimativa" class="showcase-overlay">
+            <g fill="none" stroke="#A3402C" stroke-width="2.6">
+              <rect x="335" y="370" width="84" height="100"/>
+              <rect x="285" y="120" width="66" height="34"/>
+              <rect x="405" y="145" width="86" height="34"/>
+              <rect x="480" y="150" width="90" height="34"/>
+              <rect x="555" y="360" width="100" height="34"/>
+              <rect x="555" y="430" width="118" height="34"/>
+              <rect x="480" y="535" width="90" height="34"/>
+              <rect x="270" y="550" width="120" height="34"/>
+              <rect x="400" y="565" width="120" height="34"/>
+              <rect x="155" y="535" width="90" height="34"/>
+              <rect x="95" y="355" width="90" height="34"/>
+              <rect x="80" y="430" width="150" height="34"/>
+              <rect x="155" y="150" width="90" height="34"/>
             </g>
-            <g font-family="IBM Plex Mono, monospace" font-size="4.6" fill="#EFE8D8" text-anchor="middle">
-              <text x="50" y="11">SEPTENTRIO</text>
-              <text x="50" y="93">MERIDIES</text>
-              <text x="17" y="51.5">OCCIDENS</text>
-              <text x="85" y="51.5">ORIENS</text>
+            <g font-family="IBM Plex Mono, monospace" font-size="26" fill="#241F17" text-anchor="middle">
+              <text x="377" y="425">ANNUS</text>
+              <text x="318" y="142">VER</text>
+              <text x="448" y="167">ORIENS</text>
+              <text x="525" y="172">CALIDUS</text>
+              <text x="605" y="382">AESTAS</text>
+              <text x="614" y="452">MERIDIES</text>
+              <text x="525" y="557">SICCA</text>
+              <text x="330" y="572">AUTUMNUS</text>
+              <text x="460" y="587">OCCIDENS</text>
+              <text x="200" y="557">FRIGIDA</text>
+              <text x="140" y="377">HIEMS</text>
+              <text x="155" y="452">SEPTENTRIO</text>
+              <text x="200" y="172">HUMIDUS</text>
             </g>
           </svg>
         </div>
-        <div class="cap"><b>Testo rilevato (atteso)</b>etichette e posizione approssimativa, disegno illustrativo</div>
+        <div class="cap"><b>Testo rilevato</b>13 etichette latine trascritte sul folio</div>
       </div>
     </div>
-    <p class="field-hint" style="margin-top:0.9rem;">Vuoi vedere l'estrazione del testo <em>davvero</em> calcolata su questa stessa immagine? <button type="button" class="btn-quiet btn-sm" id="load-real-example-btn">Caricala nel demo qui sotto ↓</button> (serve comunque una tua API key, vedi sotto).</p>
+
+    <div class="showcase-legend">
+      <div>
+        <h4>Parole rilevate (schema "parole": testo, x%, y%)</h4>
+        <table>
+          <thead><tr><th>Testo</th><th>Posizione</th></tr></thead>
+          <tbody>
+            <tr><td>ANNUS</td><td>x 50%, y 35%</td></tr>
+            <tr><td>VER</td><td>x 43%, y 20%</td></tr>
+            <tr><td>ORIENS</td><td>x 58%, y 23%</td></tr>
+            <tr><td>CALIDUS</td><td>x 70%, y 23%</td></tr>
+            <tr><td>AESTAS</td><td>x 79%, y 32%</td></tr>
+            <tr><td>MERIDIES</td><td>x 79%, y 38%</td></tr>
+            <tr><td>SICCA</td><td>x 70%, y 47%</td></tr>
+            <tr><td>AUTUMNUS</td><td>x 40%, y 48%</td></tr>
+            <tr><td>OCCIDENS</td><td>x 58%, y 49%</td></tr>
+            <tr><td>FRIGIDA</td><td>x 30%, y 47%</td></tr>
+            <tr><td>HIEMS</td><td>x 21%, y 32%</td></tr>
+            <tr><td>SEPTENTRIO</td><td>x 21%, y 40%</td></tr>
+            <tr><td>HUMIDUS</td><td>x 30%, y 23%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4>Elementi grafici (schema "elementi": tipo, descrizione, x%, y%)</h4>
+        <table>
+          <thead><tr><th>Elemento</th><th>Descrizione</th></tr></thead>
+          <tbody>
+            <tr><td>Cerchio esterno</td><td>anello vermiglio che delimita l'intera rota</td></tr>
+            <tr><td>Cerchio centrale</td><td>racchiude l'etichetta ANNUS</td></tr>
+            <tr><td>Lunetta nord</td><td>settore Ver / Oriens</td></tr>
+            <tr><td>Lunetta est</td><td>settore Aestas / Meridies</td></tr>
+            <tr><td>Lunetta sud</td><td>settore Autumnus / Occidens</td></tr>
+            <tr><td>Lunetta ovest</td><td>settore Hiems / Septentrio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="field-hint" style="margin-top:0.9rem;">Questa trascrizione è stata fatta a vista, non da un modello — può contenere imprecisioni da verificare sul manoscritto. Vuoi provare un'estrazione <em>calcolata automaticamente</em> su questa stessa immagine? <button type="button" class="btn-quiet btn-sm" id="load-real-example-btn">Caricala nel demo qui sotto ↓</button> (serve comunque una tua API key, vedi sotto).</p>
   </div>
 </section>
 

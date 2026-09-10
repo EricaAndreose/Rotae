@@ -301,7 +301,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border: 1px solid var(--rule); border-radius: var(--radius); overflow: auto; max-height: 520px;
   background: var(--paper-raised);
 }
-.datatable{ width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.datatable{ width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.83rem; }
 .datatable thead th{
   position: sticky; top: 0; z-index: 1; text-align: left; font-family: var(--font-mono); font-weight: 500;
   font-size: 0.7rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-soft);
@@ -309,11 +309,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   white-space: nowrap;
 }
 .datatable td{
-  padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule-soft); vertical-align: top;
+  padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule-soft); vertical-align: top; white-space: nowrap;
 }
+.datatable td:nth-child(3){ white-space: normal; min-width: 14ch; }
 .datatable tr.datatable-group-start td{ border-top: 2px solid var(--rule); }
 .datatable .dt-sub{ color: var(--ink-faint); font-size: 0.75rem; }
-.datatable .dt-url code{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
+.datatable .dt-url code{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); white-space: pre; }
 .datatable .dt-yes{ color: var(--verdigris-dark); }
 .datatable .dt-no{ color: var(--ink-faint); }
 .datatable .dt-actions{ display:flex; gap: 0.4em; white-space: nowrap; }
@@ -553,15 +554,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .showcase-panel{
   border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--paper-raised);
 }
-.showcase-panel .frame{ aspect-ratio: 3/4; background: var(--ink); position: relative; overflow: hidden; }
+.showcase-panel .frame{ aspect-ratio: 5/8; background: var(--ink); position: relative; overflow: hidden; }
 .showcase-panel .frame img{ width: 100%; height: 100%; object-fit: contain; }
 .showcase-panel .cap{ padding: 0.7em 0.85em; font-size: 0.82rem; color: var(--ink-soft); }
 .showcase-panel .cap b{ color: var(--ink); display:block; font-size: 0.86rem; margin-bottom: 0.15em; }
 .badge-illus{
   position:absolute; top: 0.5em; left: 0.5em; background: rgba(163,64,44,0.92); color: #fff;
   font-family: var(--font-mono); font-size: 0.62rem; padding: 0.25em 0.55em; border-radius: 20px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.02em; z-index: 2;
 }
+/* Immagine reale "schiarita" (contrasto/luminosità) sotto le sovrapposizioni,
+   per far risaltare meglio segni e parole — resta l'immagine vera, solo filtrata. */
+.showcase-clarified{ filter: contrast(1.18) brightness(1.1) saturate(1.12); }
+.showcase-img-stack{ position: absolute; inset: 0; }
+.showcase-overlay{ position: absolute; inset: 0; width: 100%; height: 100%; }
+.showcase-legend{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.4rem; }
+@media (max-width: 700px){ .showcase-legend{ grid-template-columns: 1fr; } }
+.showcase-legend h4{
+  font-size: 0.76rem; margin: 0 0 0.5em; font-family: var(--font-mono); color: var(--ink-soft);
+  text-transform: uppercase; letter-spacing: 0.03em; font-weight: 500;
+}
+.showcase-legend table{ width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.showcase-legend th, .showcase-legend td{ text-align: left; padding: 0.32em 0.5em; border-bottom: 1px solid var(--rule-soft); }
+.showcase-legend th{ font-family: var(--font-mono); font-weight: 500; color: var(--ink-soft); font-size: 0.7rem; }
 
 .demo-panel{
   border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-raised);
