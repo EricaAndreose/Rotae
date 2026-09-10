@@ -21,24 +21,6 @@ js/confronto.js       Logica pagina Confronto
 js/estrazione.js      Logica pagina Estrazione (demo live)
 ```
 
-## Pubblicare su GitHub Pages
-
-1. Crea un repository su GitHub (es. `isidoro-rotae`) e carica **tutto il contenuto
-   di questa cartella** nella radice del repository (non in una sottocartella).
-2. Su GitHub: **Settings → Pages → Source**, scegli il branch `main` e la cartella
-   `/ (root)`, poi salva.
-3. Dopo un minuto o due il sito sarà online su
-   `https://<tuo-utente>.github.io/isidoro-rotae/`.
-
-Non serve alcuna build: sono solo file statici. Per lavorarci in locale basta aprire
-`index.html` in un browser, oppure lanciare un piccolo server locale, ad esempio:
-
-```bash
-python3 -m http.server 8000
-```
-
-e poi visitare `http://localhost:8000`.
-
 ## Aggiornare i dati del corpus
 
 I dati di manoscritti e pagine vivono in `js/data.js`, nell'oggetto
