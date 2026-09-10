@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corpus — Le rotae di Isidoro</title>
+<meta name="description" content="Manoscritti di Isidoro di Siviglia esplorati, con le pagine contenenti diagrammi collegate alle immagini IIIF.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="corpus">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Le rotae di Isidoro <small>corpus &amp; strumenti · anno I</small></a>
+    <button class="nav-toggle" aria-label="Apri il menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home">Introduzione</a></li>
+      <li><a href="corpus.html" data-page="corpus">Corpus</a></li>
+      <li><a href="confronto.html" data-page="confronto">Confronto</a></li>
+      <li><a href="estrazione.html" data-page="estrazione">Estrazione IA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="pageheader">
+  <div class="wrap">
+    <p class="eyebrow">Fase 2 — corpus</p>
+    <h1>I manoscritti e le loro rotae</h1>
+    <p>Ogni manoscritto è schedato con istituzione conservatrice, datazione, dimensioni e numero di fogli; sotto, le singole pagine contenenti un diagramma, collegate — dove possibile — alla relativa immagine IIIF. Clicca su una pagina per aprirla nel visore con zoom; usa il segno «+» per aggiungerla al <a href="confronto.html">confronto</a>.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="filters" id="filters" role="group" aria-label="Filtra per manoscritto"></div>
+    <div id="ms-blocks"></div>
+  </div>
+</section>
+
+<div id="compare-bar" hidden style="position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--ink); color:#F1EADA; padding:0.8rem 0;">
+  <div class="wrap" style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+    <span style="font-family:var(--font-mono); font-size:0.85rem;"><span id="compare-count">0</span> pagine selezionate per il confronto</span>
+    <span class="spacer" style="flex:1;"></span>
+    <button class="btn-quiet btn-sm" id="clear-selection" style="color:#D8CFB8; border-color:#544B39;">Svuota</button>
+    <a class="btn btn-sm" href="confronto.html">Vai al confronto →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Le immagini incorporate provengono dai servizi di digitalizzazione delle biblioteche indicate in ciascuna scheda; dove non è stato possibile incorporarle direttamente, è disponibile il link alla pagina originale.</p>
+  </div>
+</footer>
+
+<!-- Lightbox / visore -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visore pagina manoscritto">
+  <div class="lightbox-panel">
+    <div class="lightbox-head">
+      <div>
+        <h3 id="lb-title">—</h3>
+        <div class="meta" id="lb-meta"></div>
+      </div>
+      <button class="lightbox-close" id="lb-close" aria-label="Chiudi">×</button>
+    </div>
+    <div class="lightbox-stage" id="lb-stage">
+      <img id="lb-img" alt="">
+      <div id="lb-noimg" hidden style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#B7AF9B; font-family:var(--font-mono); font-size:0.85rem; text-align:center; padding:1.5rem;">
+        Questa pagina non offre un'immagine incorporabile direttamente: usa il link alla scheda originale qui sotto.
+      </div>
+    </div>
+    <div class="viewer-controls">
+      <button class="btn-quiet btn-sm" id="lb-prev">← Precedente</button>
+      <button class="btn-quiet btn-sm" id="lb-next">Successiva →</button>
+      <span class="spacer"></span>
+      <button class="btn-quiet btn-sm" id="lb-zoom-out">−</button>
+      <button class="btn-quiet btn-sm" id="lb-reset">Reimposta</button>
+      <button class="btn-quiet btn-sm" id="lb-zoom-in">+</button>
+    </div>
+    <div class="lightbox-foot">
+      <a id="lb-open-original" href="#" target="_blank" rel="noopener">Apri la scheda / immagine originale ↗</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/corpus.js"></script>
+</body>
+</html>

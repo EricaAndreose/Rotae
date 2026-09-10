@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estrazione con IA — Le rotae di Isidoro</title>
+<meta name="description" content="Metodo ed esperimenti preliminari di lettura computazionale di testo e segno grafico nei diagrammi manoscritti, con demo live opzionale.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="estrazione">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Le rotae di Isidoro <small>corpus &amp; strumenti · anno I</small></a>
+    <button class="nav-toggle" aria-label="Apri il menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home">Introduzione</a></li>
+      <li><a href="corpus.html" data-page="corpus">Corpus</a></li>
+      <li><a href="confronto.html" data-page="confronto">Confronto</a></li>
+      <li><a href="estrazione.html" data-page="estrazione">Estrazione IA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="pageheader">
+  <div class="wrap">
+    <p class="eyebrow">Fase 3 — primi esperimenti</p>
+    <h1>Leggere il diagramma con l'IA</h1>
+    <p>Due compiti tenuti volutamente distinti: estrarre <strong>il testo</strong> scritto dentro e intorno alla rota, con la sua posizione; estrarre <strong>il segno grafico</strong> del disegno — cerchi, settori, linee — in forma vettoriale. Questa pagina riassume il metodo e mostra, in forma illustrativa, il tipo di output atteso; in fondo trovi un piccolo demo funzionante e opzionale.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Il metodo, in breve</h2>
+      <span class="section-num">§ 03</span>
+    </div>
+    <p class="section-intro">La pipeline sperimentata combina più livelli, ciascuno responsabile di un aspetto diverso del disegno, poi ricomposti in un unico file vettoriale confrontabile tra manoscritti.</p>
+    <div class="method-grid">
+      <div class="method-card">
+        <span class="step">01 · linee</span>
+        <h3>Vettorizzazione del tratto (DSV)</h3>
+        <p>Il disegno a penna del diagramma — cerchi, raggi, intersezioni — viene convertito in linee vettoriali pulite, riducendo il rumore della digitalizzazione fotografica.</p>
+      </div>
+      <div class="method-card">
+        <span class="step">02 · aree</span>
+        <h3>Segmentazione (SAM) e regioni chiuse</h3>
+        <p>Un modello di segmentazione isola le aree del diagramma; un metodo di regionalizzazione basato su <code>shapely.polygonize</code> ricava le facce chiuse dal reticolo di linee vettorializzato, robusto anche su strutture sottili, anulari o ad albero aperte.</p>
+      </div>
+      <div class="method-card">
+        <span class="step">03 · testo</span>
+        <h3>Rilevamento del testo</h3>
+        <p>Un livello dedicato individua le etichette scritte nel diagramma e la loro posizione, per poterle poi ricollegare alla regione o al settore a cui appartengono.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Che tipo di output produce</h2>
+      <span class="section-num">§ 04</span>
+    </div>
+    <p class="section-intro">Le tre immagini sotto sono <strong>illustrazioni schematiche</strong> — non l'output reale della pipeline su un manoscritto — usate qui solo per mostrare la forma dei risultati attesi: un'immagine di partenza, il tracciato vettoriale che se ne ricava, le etichette di testo individuate con la loro posizione.</p>
+
+    <div class="showcase">
+      <div class="showcase-panel">
+        <div class="frame">
+          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo di una rota di partenza">
+            <rect width="300" height="300" fill="#241F17"/>
+            <circle cx="150" cy="150" r="130" fill="none" stroke="#EFE8D8" stroke-width="2" opacity="0.9"/>
+            <circle cx="150" cy="150" r="90" fill="none" stroke="#EFE8D8" stroke-width="1.6" opacity="0.75"/>
+            <circle cx="150" cy="150" r="40" fill="none" stroke="#EFE8D8" stroke-width="1.6" opacity="0.6"/>
+            <line x1="150" y1="20" x2="150" y2="280" stroke="#EFE8D8" stroke-width="1.4" opacity="0.7"/>
+            <line x1="20" y1="150" x2="280" y2="150" stroke="#EFE8D8" stroke-width="1.4" opacity="0.7"/>
+            <line x1="56" y1="56" x2="244" y2="244" stroke="#EFE8D8" stroke-width="1" opacity="0.4"/>
+            <line x1="244" y1="56" x2="56" y2="244" stroke="#EFE8D8" stroke-width="1" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="cap"><b>Immagine di partenza</b>schema di rota, esempio generico</div>
+      </div>
+
+      <div class="showcase-panel" style="position:relative;">
+        <div class="frame">
+          <span class="badge-illus">illustrazione</span>
+          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo dell'estrazione vettoriale">
+            <rect width="300" height="300" fill="#241F17"/>
+            <circle cx="150" cy="150" r="130" fill="none" stroke="#5E7350" stroke-width="1.6"/>
+            <circle cx="150" cy="150" r="90" fill="none" stroke="#5E7350" stroke-width="1.6"/>
+            <circle cx="150" cy="150" r="40" fill="none" stroke="#5E7350" stroke-width="1.6"/>
+            <line x1="150" y1="20" x2="150" y2="280" stroke="#2C4A66" stroke-width="1.4"/>
+            <line x1="20" y1="150" x2="280" y2="150" stroke="#2C4A66" stroke-width="1.4"/>
+            <line x1="56" y1="56" x2="244" y2="244" stroke="#2C4A66" stroke-width="1"/>
+            <line x1="244" y1="56" x2="56" y2="244" stroke="#2C4A66" stroke-width="1"/>
+            <circle cx="150" cy="105" r="2" fill="#B08A3E"/>
+            <circle cx="150" cy="60" r="2" fill="#B08A3E"/>
+            <circle cx="150" cy="150" r="2" fill="#B08A3E"/>
+            <circle cx="195" cy="150" r="2" fill="#B08A3E"/>
+            <circle cx="240" cy="150" r="2" fill="#B08A3E"/>
+          </svg>
+        </div>
+        <div class="cap"><b>Segno estratto</b>linee vettoriali + nodi delle regioni chiuse</div>
+      </div>
+
+      <div class="showcase-panel" style="position:relative;">
+        <div class="frame">
+          <span class="badge-illus">illustrazione</span>
+          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo del rilevamento del testo">
+            <rect width="300" height="300" fill="#241F17"/>
+            <circle cx="150" cy="150" r="130" fill="none" stroke="#EFE8D8" stroke-width="1" opacity="0.35"/>
+            <circle cx="150" cy="150" r="90" fill="none" stroke="#EFE8D8" stroke-width="1" opacity="0.3"/>
+            <g fill="none" stroke="#A3402C" stroke-width="1.3">
+              <rect x="128" y="20" width="44" height="14"/>
+              <rect x="128" y="266" width="52" height="14"/>
+              <rect x="22" y="143" width="58" height="14"/>
+              <rect x="220" y="143" width="60" height="14"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#EFE8D8" text-anchor="middle">
+              <text x="150" y="30">SEPTENTRIO</text>
+              <text x="150" y="276">MERIDIES</text>
+              <text x="51" y="153">OCCIDENS</text>
+              <text x="250" y="153">ORIENS</text>
+            </g>
+          </svg>
+        </div>
+        <div class="cap"><b>Testo rilevato</b>etichette e posizione approssimativa (es. punti cardinali)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Demo live (sperimentale)</h2>
+      <span class="section-num">§ 05</span>
+    </div>
+    <p class="section-intro">Una versione semplificata e ad-hoc del compito di lettura del testo o degli elementi grafici, eseguita nel browser tramite l'API di Anthropic. Non è la pipeline descritta sopra (che gira via codice, non nel browser): è un modo rapido per mostrare cosa un modello multimodale generico "vede" in un'immagine di rota, da caricare qui.</p>
+
+    <div class="callout">
+      <b>Prima di provarla</b>
+      Serve una tua API key Anthropic, usata solo dal tuo browser per chiamare direttamente <code>api.anthropic.com</code>: non viene salvata né inviata altrove da questo sito. Trattandosi di una chiamata diretta da pagina statica, alcuni browser possono bloccarla; in tal caso il metodo resta comunque documentabile descrivendolo, senza il demo.
+    </div>
+
+    <div class="demo-panel">
+      <div class="demo-grid">
+        <div>
+          <div class="field">
+            <label for="demo-key">API key Anthropic</label>
+            <input type="password" id="demo-key" placeholder="sk-ant-…" autocomplete="off">
+            <p class="field-hint">Resta solo in memoria, per questa sessione.</p>
+          </div>
+          <div class="field">
+            <label for="demo-model">Modello</label>
+            <input type="text" id="demo-model" value="claude-sonnet-5">
+          </div>
+          <div class="field">
+            <label for="demo-task">Cosa estrarre</label>
+            <select id="demo-task">
+              <option value="testo">Testo e posizione delle parole</option>
+              <option value="elementi">Elementi grafici principali</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Immagine di prova</label>
+            <div class="demo-drop" id="demo-drop">Trascina qui un'immagine di un diagramma, o clicca per scegliere un file</div>
+            <input type="file" id="demo-file" accept="image/png,image/jpeg,image/webp" style="display:none">
+          </div>
+          <button class="btn" id="demo-run" disabled>Estrai →</button>
+          <p class="demo-status" id="demo-status"></p>
+        </div>
+        <div>
+          <div class="demo-stage" id="demo-stage"><span class="placeholder">Nessuna immagine caricata</span></div>
+          <div class="demo-out" id="demo-out"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Il demo live è un esperimento didattico separato dalla pipeline di ricerca (DSV + SAM + regionalizzazione), che gira come codice Python e non è eseguibile da questa pagina.</p>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/estrazione.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le rotae di Isidoro — corpus e strumenti di lettura computazionale</title>
+<meta name="description" content="Strumento digitale per l'esplorazione, il confronto e la lettura computazionale delle rotae e degli schemi diagrammatici nei manoscritti di Isidoro di Siviglia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%23EFE8D8%22 stroke=%22%23241F17%22 stroke-width=%224%22/><line x1=%2250%22 y1=%226%22 x2=%2250%22 y2=%2294%22 stroke=%22%23241F17%22 stroke-width=%223%22/><line x1=%226%22 y1=%2250%22 x2=%2294%22 y2=%2250%22 stroke=%22%23241F17%22 stroke-width=%223%22/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Le rotae di Isidoro <small>corpus &amp; strumenti · anno I</small></a>
+    <button class="nav-toggle" aria-label="Apri il menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home">Introduzione</a></li>
+      <li><a href="corpus.html" data-page="corpus">Corpus</a></li>
+      <li><a href="confronto.html" data-page="confronto">Confronto</a></li>
+      <li><a href="estrazione.html" data-page="estrazione">Estrazione IA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Verifica del primo anno di dottorato</p>
+      <h1>Leggere le rotae di Isidoro con l'aiuto della macchina</h1>
+      <p class="lede">Un piccolo strumento di lavoro, non una pubblicazione: raccoglie i tre passi compiuti nel primo anno — ricognizione bibliografica, raccolta di un corpus di diagrammi tramite IIIF, primi esperimenti di lettura computazionale dei segni grafici e del testo.</p>
+      <div class="hero-cta">
+        <a class="btn" href="corpus.html">Esplora il corpus →</a>
+        <a class="btn btn-outline" href="#bibliografia">Il percorso del primo anno</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <svg class="rota" viewBox="0 0 440 440" role="img" aria-labelledby="rota-title rota-desc">
+        <title id="rota-title">Rota di navigazione del sito</title>
+        <desc id="rota-desc">Diagramma a ruota nello stile delle rotae isidoriane: ogni settore rimanda a una sezione del sito.</desc>
+
+        <g class="rota-ticks" aria-hidden="true">
+          <line class="rota-tick" x1="426.0" y1="220.0" x2="436.0" y2="220.0" />
+          <line class="rota-tick" x1="424.2" y1="246.9" x2="428.2" y2="247.4" />
+          <line class="rota-tick" x1="419.0" y1="273.3" x2="422.8" y2="274.4" />
+          <line class="rota-tick" x1="410.3" y1="298.8" x2="414.0" y2="300.4" />
+          <line class="rota-tick" x1="398.4" y1="323.0" x2="407.1" y2="328.0" />
+          <line class="rota-tick" x1="383.4" y1="345.4" x2="386.6" y2="347.8" />
+          <line class="rota-tick" x1="365.7" y1="365.7" x2="368.5" y2="368.5" />
+          <line class="rota-tick" x1="345.4" y1="383.4" x2="347.8" y2="386.6" />
+          <line class="rota-tick" x1="323.0" y1="398.4" x2="328.0" y2="407.1" />
+          <line class="rota-tick" x1="298.8" y1="410.3" x2="300.4" y2="414.0" />
+          <line class="rota-tick" x1="273.3" y1="419.0" x2="274.4" y2="422.8" />
+          <line class="rota-tick" x1="246.9" y1="424.2" x2="247.4" y2="428.2" />
+          <line class="rota-tick" x1="220.0" y1="426.0" x2="220.0" y2="436.0" />
+          <line class="rota-tick" x1="193.1" y1="424.2" x2="192.6" y2="428.2" />
+          <line class="rota-tick" x1="166.7" y1="419.0" x2="165.6" y2="422.8" />
+          <line class="rota-tick" x1="141.2" y1="410.3" x2="139.6" y2="414.0" />
+          <line class="rota-tick" x1="117.0" y1="398.4" x2="112.0" y2="407.1" />
+          <line class="rota-tick" x1="94.6" y1="383.4" x2="92.2" y2="386.6" />
+          <line class="rota-tick" x1="74.3" y1="365.7" x2="71.5" y2="368.5" />
+          <line class="rota-tick" x1="56.6" y1="345.4" x2="53.4" y2="347.8" />
+          <line class="rota-tick" x1="41.6" y1="323.0" x2="32.9" y2="328.0" />
+          <line class="rota-tick" x1="29.7" y1="298.8" x2="26.0" y2="300.4" />
+          <line class="rota-tick" x1="21.0" y1="273.3" x2="17.2" y2="274.4" />
+          <line class="rota-tick" x1="15.8" y1="246.9" x2="11.8" y2="247.4" />
+          <line class="rota-tick" x1="14.0" y1="220.0" x2="4.0" y2="220.0" />
+          <line class="rota-tick" x1="15.8" y1="193.1" x2="11.8" y2="192.6" />
+          <line class="rota-tick" x1="21.0" y1="166.7" x2="17.2" y2="165.6" />
+          <line class="rota-tick" x1="29.7" y1="141.2" x2="26.0" y2="139.6" />
+          <line class="rota-tick" x1="41.6" y1="117.0" x2="32.9" y2="112.0" />
+          <line class="rota-tick" x1="56.6" y1="94.6" x2="53.4" y2="92.2" />
+          <line class="rota-tick" x1="74.3" y1="74.3" x2="71.5" y2="71.5" />
+          <line class="rota-tick" x1="94.6" y1="56.6" x2="92.2" y2="53.4" />
+          <line class="rota-tick" x1="117.0" y1="41.6" x2="112.0" y2="32.9" />
+          <line class="rota-tick" x1="141.2" y1="29.7" x2="139.6" y2="26.0" />
+          <line class="rota-tick" x1="166.7" y1="21.0" x2="165.6" y2="17.2" />
+          <line class="rota-tick" x1="193.1" y1="15.8" x2="192.6" y2="11.8" />
+          <line class="rota-tick" x1="220.0" y1="14.0" x2="220.0" y2="4.0" />
+          <line class="rota-tick" x1="246.9" y1="15.8" x2="247.4" y2="11.8" />
+          <line class="rota-tick" x1="273.3" y1="21.0" x2="274.4" y2="17.2" />
+          <line class="rota-tick" x1="298.8" y1="29.7" x2="300.4" y2="26.0" />
+          <line class="rota-tick" x1="323.0" y1="41.6" x2="328.0" y2="32.9" />
+          <line class="rota-tick" x1="345.4" y1="56.6" x2="347.8" y2="53.4" />
+          <line class="rota-tick" x1="365.7" y1="74.3" x2="368.5" y2="71.5" />
+          <line class="rota-tick" x1="383.4" y1="94.6" x2="386.6" y2="92.2" />
+          <line class="rota-tick" x1="398.4" y1="117.0" x2="407.1" y2="112.0" />
+          <line class="rota-tick" x1="410.3" y1="141.2" x2="414.0" y2="139.6" />
+          <line class="rota-tick" x1="419.0" y1="166.7" x2="422.8" y2="165.6" />
+          <line class="rota-tick" x1="424.2" y1="193.1" x2="428.2" y2="192.6" />
+        </g>
+
+        <a class="rota-a" href="#bibliografia">
+          <path class="rota-sector s-biblio" d="M222.44,20.01 A200.00,200.00 0 0 1 419.99,217.56 L311.99,218.88 A92.00,92.00 0 0 0 221.12,128.01 Z" tabindex="0"/>
+          <text class="rota-num" x="326" y="98">I</text>
+          <text class="rota-label" x="326" y="118">Ricerca</text>
+          <text class="rota-label" x="326" y="131">bibliografica</text>
+        </a>
+        <a class="rota-a" href="corpus.html">
+          <path class="rota-sector s-corpus" d="M419.99,222.44 A200.00,200.00 0 0 1 222.44,419.99 L221.12,311.99 A92.00,92.00 0 0 0 311.99,221.12 Z" tabindex="0"/>
+          <text class="rota-num" x="326" y="316">II</text>
+          <text class="rota-label" x="326" y="336">Corpus dei</text>
+          <text class="rota-label" x="326" y="349">diagrammi</text>
+        </a>
+        <a class="rota-a" href="confronto.html">
+          <path class="rota-sector s-confronto" d="M217.56,419.99 A200.00,200.00 0 0 1 20.01,222.44 L128.01,221.12 A92.00,92.00 0 0 0 218.88,311.99 Z" tabindex="0"/>
+          <text class="rota-num" x="114" y="316">III</text>
+          <text class="rota-label" x="114" y="336">Confronto tra</text>
+          <text class="rota-label" x="114" y="349">diagrammi</text>
+        </a>
+        <a class="rota-a" href="estrazione.html">
+          <path class="rota-sector s-estrazione" d="M20.01,217.56 A200.00,200.00 0 0 1 217.56,20.01 L218.88,128.01 A92.00,92.00 0 0 0 128.01,218.88 Z" tabindex="0"/>
+          <text class="rota-num" x="114" y="98">IV</text>
+          <text class="rota-label" x="114" y="118">Estrazione</text>
+          <text class="rota-label" x="114" y="131">con l'IA</text>
+        </a>
+
+        <circle class="rota-hub" cx="220" cy="220" r="92"/>
+        <text class="rota-hub-label" x="220" y="213">ANNO I</text>
+        <text class="rota-hub-label" x="220" y="228">Isidoro di Siviglia</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stat-strip">
+      <div class="stat"><span class="n" id="stat-ms">–</span><span class="l">manoscritti censiti</span></div>
+      <div class="stat"><span class="n" id="stat-pages">–</span><span class="l">pagine con diagramma</span></div>
+      <div class="stat"><span class="n" id="stat-inst">–</span><span class="l">istituzioni conservatrici</span></div>
+      <div class="stat"><span class="n">VIII–X</span><span class="l">secoli rappresentati</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibliografia">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Il percorso del primo anno</h2>
+      <span class="section-num">§ 01</span>
+    </div>
+    <p class="section-intro">Tre fasi, non ancora concluse, ciascuna condizione della successiva: capire cosa si è scritto sui diagrammi isidoriani, mettere insieme un corpus di immagini su cui lavorare, cominciare a chiedere a dei modelli di visione artificiale di leggerlo al posto — o insieme — a me.</p>
+
+    <ol class="timeline">
+      <li>
+        <span class="when">Fase 1</span>
+        <h3>Ricognizione bibliografica</h3>
+        <p>Ricostruzione dello stato dell'arte su due fronti paralleli: gli studi storico-artistici e codicologici sulle rotae e sugli schemi diagrammatici altomedievali (in particolare quelli legati a Isidoro di Siviglia e alla tradizione del <em>De natura rerum</em> e delle <em>Etymologiae</em>), e la letteratura più tecnica su vettorizzazione, segmentazione di immagini e riconoscimento di forme applicata a documenti storici.</p>
+      </li>
+      <li>
+        <span class="when">Fase 2</span>
+        <h3>Costruzione del corpus tramite IIIF</h3>
+        <p>Individuazione dei manoscritti isidoriani digitalizzati dalle biblioteche conservatrici e schedatura sistematica delle pagine contenenti diagrammi, con link diretti alle immagini (in gran parte servite tramite protocollo IIIF) da usare come base di confronto visivo e di sperimentazione. È la fase documentata nella sezione <a href="corpus.html">Corpus</a>.</p>
+      </li>
+      <li>
+        <span class="when">Fase 3</span>
+        <h3>Primi esperimenti di lettura computazionale</h3>
+        <p>Test preliminari con modelli di IA per due compiti distinti: l'estrazione del testo scritto nei diagrammi con la sua posizione, e l'estrazione del segno grafico del disegno (linee, cerchi, settori) in forma vettoriale, in vista di una pipeline più strutturata. Documentata nella sezione <a href="estrazione.html">Estrazione con IA</a>.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Gli strumenti</h2>
+      <span class="section-num">§ 02</span>
+    </div>
+    <p class="section-intro">Tre modi diversi di stare dentro agli stessi dati: sfogliarli, affiancarli, interrogarli.</p>
+    <div class="card-grid">
+      <a class="card" href="corpus.html">
+        <span class="card-num">II</span>
+        <h3>Corpus</h3>
+        <p>I manoscritti isidoriani esplorati finora, con le pagine contenenti diagrammi collegate alle rispettive immagini IIIF.</p>
+        <span class="card-go">Sfoglia il corpus →</span>
+      </a>
+      <a class="card" href="confronto.html">
+        <span class="card-num">III</span>
+        <h3>Confronto</h3>
+        <p>Seleziona due o più diagrammi, da uno stesso manoscritto o da manoscritti diversi, e osservali affiancati con zoom sincronizzato.</p>
+        <span class="card-go">Apri lo strumento →</span>
+      </a>
+      <a class="card" href="estrazione.html">
+        <span class="card-num">IV</span>
+        <h3>Estrazione con IA</h3>
+        <p>Il metodo sperimentato per la lettura automatica di testo e segno grafico, con un piccolo demo interattivo opzionale.</p>
+        <span class="card-go">Vedi gli esperimenti →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Strumento di lavoro per la verifica del primo anno di dottorato in Digital Humanities. Le immagini dei manoscritti restano di proprietà e sotto licenza delle rispettive istituzioni conservatrici; sono qui richiamate a fini di studio tramite i loro servizi di digitalizzazione pubblici.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var d = window.ISIDORO_CORPUS || [];
+    document.getElementById('stat-ms').textContent = d.length;
+    document.getElementById('stat-pages').textContent = d.reduce(function(a,m){return a+m.pages.length;},0);
+    document.getElementById('stat-inst').textContent = new Set(d.map(function(m){return m.institution;})).size;
+  });
+</script>
+</body>
+</html>

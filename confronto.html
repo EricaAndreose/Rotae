@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confronto — Le rotae di Isidoro</title>
+<meta name="description" content="Confronta affiancate le rotae e gli schemi diagrammatici dei manoscritti isidoriani, con zoom sincronizzato.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="confronto">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Le rotae di Isidoro <small>corpus &amp; strumenti · anno I</small></a>
+    <button class="nav-toggle" aria-label="Apri il menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home">Introduzione</a></li>
+      <li><a href="corpus.html" data-page="corpus">Corpus</a></li>
+      <li><a href="confronto.html" data-page="confronto">Confronto</a></li>
+      <li><a href="estrazione.html" data-page="estrazione">Estrazione IA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="pageheader">
+  <div class="wrap">
+    <p class="eyebrow">Strumento di lavoro</p>
+    <h1>Confronto tra diagrammi</h1>
+    <p>Cerca e seleziona fino a sei pagine dall'elenco a sinistra — anche da manoscritti diversi — per osservarle affiancate. Trascina per spostare l'immagine, usa la rotellina o il pizzico per ingrandire; con «sincronizza» attivo, zoom e spostamento si applicano a tutti i pannelli insieme, utile per confrontare la stessa porzione di rota in due copie diverse.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="confronto-layout">
+      <aside class="picker">
+        <h3>Pagine disponibili</h3>
+        <input class="picker-search" id="picker-search" type="search" placeholder="Cerca per manoscritto, folio, titolo…">
+        <div class="picker-list" id="picker-list"></div>
+        <p class="picker-hint">La selezione è condivisa con la pagina Corpus ed è salvata solo nel tuo browser.</p>
+        <button class="btn-quiet btn-sm" id="clear-all" style="margin-top:0.6rem;">Svuota selezione</button>
+      </aside>
+
+      <div class="compare-stage-wrap">
+        <div class="compare-toolbar">
+          <label style="display:flex; align-items:center; gap:0.5em; font-size:0.85rem; color:var(--ink-soft);">
+            <input type="checkbox" id="sync-toggle" checked style="accent-color:var(--lapis);">
+            Sincronizza zoom e spostamento
+          </label>
+          <span class="spacer"></span>
+          <a class="btn-quiet btn-sm" href="corpus.html">+ Aggiungi dal corpus</a>
+        </div>
+        <div class="compare-stage" id="compare-stage"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Le immagini sono caricate direttamente dai server IIIF delle biblioteche conservatrici; il confronto avviene lato client, senza copie salvate altrove.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/confronto.js"></script>
+</body>
+</html>
