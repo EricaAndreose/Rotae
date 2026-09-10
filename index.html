@@ -161,6 +161,39 @@
   </div>
 </section>
 
+<section class="section" id="dati">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Dati del corpus, in tempo reale</h2>
+      <span class="section-num">§ 02</span>
+    </div>
+    <p class="section-intro">Vista tabellare di <code>js/data.js</code> — utile per controllare al volo cosa c'è già mentre aggiungi manoscritti o pagine, e per copiare rapidamente una riga o un URL. Non è una copia: legge lo stesso file usato dal resto del sito, quindi si aggiorna da sola a ogni modifica.</p>
+    <div class="datatable-toolbar">
+      <input class="datatable-search" id="datatable-search" type="search" placeholder="Cerca per manoscritto, folio, titolo, URL…">
+      <span class="spacer"></span>
+      <span class="datatable-count" id="datatable-count"></span>
+      <button class="btn-quiet btn-sm" id="datatable-copy-json">Copia tutto come JSON</button>
+    </div>
+    <div class="datatable-wrap">
+      <table class="datatable" id="datatable">
+        <thead>
+          <tr>
+            <th>Manoscritto</th>
+            <th>Folio</th>
+            <th>Titolo</th>
+            <th>Media</th>
+            <th>Incorporabile</th>
+            <th>URL immagine</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="datatable-body"></tbody>
+      </table>
+    </div>
+    <p class="picker-hint" id="datatable-empty" hidden>Nessuna riga corrisponde alla ricerca.</p>
+  </div>
+</section>
+
 <!-- <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -199,6 +232,7 @@
 
 <script src="js/data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/data-table.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
     var d = window.ISIDORO_CORPUS || [];

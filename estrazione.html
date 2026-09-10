@@ -57,77 +57,65 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="esempio-reale">
   <div class="wrap">
     <div class="section-head">
       <h2>Che tipo di output produce</h2>
       <span class="section-num">§ 04</span>
     </div>
-    <p class="section-intro">Le tre immagini sotto sono <strong>illustrazioni schematiche</strong> — non l'output reale della pipeline su un manoscritto — usate qui solo per mostrare la forma dei risultati attesi: un'immagine di partenza, il tracciato vettoriale che se ne ricava, le etichette di testo individuate con la loro posizione.</p>
+    <p class="section-intro">Il punto di partenza qui sotto è un'immagine <strong>reale del corpus</strong> (Ms. 422, Laon, f. 7 recto — "<a href="corpus.html">Roue de l'année et des saisons</a>"), non uno schema generico. La pipeline vera (DSV + SAM + regionalizzazione) gira come codice Python e non può essere eseguita in questa pagina statica: i due pannelli con le fasi di estrazione mostrano quindi una <strong>sovrapposizione illustrativa</strong> — la forma attesa del risultato, disegnata sopra l'immagine reale — non l'output realmente calcolato da quel manoscritto.</p>
 
     <div class="showcase">
       <div class="showcase-panel">
         <div class="frame">
-          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo di una rota di partenza">
-            <rect width="300" height="300" fill="#241F17"/>
-            <circle cx="150" cy="150" r="130" fill="none" stroke="#EFE8D8" stroke-width="2" opacity="0.9"/>
-            <circle cx="150" cy="150" r="90" fill="none" stroke="#EFE8D8" stroke-width="1.6" opacity="0.75"/>
-            <circle cx="150" cy="150" r="40" fill="none" stroke="#EFE8D8" stroke-width="1.6" opacity="0.6"/>
-            <line x1="150" y1="20" x2="150" y2="280" stroke="#EFE8D8" stroke-width="1.4" opacity="0.7"/>
-            <line x1="20" y1="150" x2="280" y2="150" stroke="#EFE8D8" stroke-width="1.4" opacity="0.7"/>
-            <line x1="56" y1="56" x2="244" y2="244" stroke="#EFE8D8" stroke-width="1" opacity="0.4"/>
-            <line x1="244" y1="56" x2="56" y2="244" stroke="#EFE8D8" stroke-width="1" opacity="0.4"/>
-          </svg>
+          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="Ms. 422, Laon, f. 7 recto — Roue de l'année et des saisons" style="width:100%;height:100%;object-fit:contain;">
         </div>
-        <div class="cap"><b>Immagine di partenza</b>schema di rota, esempio generico</div>
+        <div class="cap"><b>Immagine di partenza</b>reale — Ms. 422 (Laon), f. 7 recto</div>
       </div>
 
       <div class="showcase-panel" style="position:relative;">
         <div class="frame">
-          <span class="badge-illus">illustrazione</span>
-          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo dell'estrazione vettoriale">
-            <rect width="300" height="300" fill="#241F17"/>
-            <circle cx="150" cy="150" r="130" fill="none" stroke="#5E7350" stroke-width="1.6"/>
-            <circle cx="150" cy="150" r="90" fill="none" stroke="#5E7350" stroke-width="1.6"/>
-            <circle cx="150" cy="150" r="40" fill="none" stroke="#5E7350" stroke-width="1.6"/>
-            <line x1="150" y1="20" x2="150" y2="280" stroke="#2C4A66" stroke-width="1.4"/>
-            <line x1="20" y1="150" x2="280" y2="150" stroke="#2C4A66" stroke-width="1.4"/>
-            <line x1="56" y1="56" x2="244" y2="244" stroke="#2C4A66" stroke-width="1"/>
-            <line x1="244" y1="56" x2="56" y2="244" stroke="#2C4A66" stroke-width="1"/>
-            <circle cx="150" cy="105" r="2" fill="#B08A3E"/>
-            <circle cx="150" cy="60" r="2" fill="#B08A3E"/>
-            <circle cx="150" cy="150" r="2" fill="#B08A3E"/>
-            <circle cx="195" cy="150" r="2" fill="#B08A3E"/>
-            <circle cx="240" cy="150" r="2" fill="#B08A3E"/>
+          <span class="badge-illus">sovrapposizione illustrativa</span>
+          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%" role="img" aria-label="Sovrapposizione illustrativa del tracciato vettoriale atteso" style="position:absolute;inset:0;">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#5E7350" stroke-width="1"/>
+            <circle cx="50" cy="50" r="29" fill="none" stroke="#5E7350" stroke-width="1"/>
+            <circle cx="50" cy="50" r="13" fill="none" stroke="#5E7350" stroke-width="1"/>
+            <line x1="50" y1="8" x2="50" y2="92" stroke="#2C4A66" stroke-width="0.8"/>
+            <line x1="8" y1="50" x2="92" y2="50" stroke="#2C4A66" stroke-width="0.8"/>
+            <circle cx="50" cy="35" r="0.8" fill="#B08A3E"/>
+            <circle cx="50" cy="21" r="0.8" fill="#B08A3E"/>
+            <circle cx="50" cy="50" r="0.8" fill="#B08A3E"/>
+            <circle cx="65" cy="50" r="0.8" fill="#B08A3E"/>
+            <circle cx="79" cy="50" r="0.8" fill="#B08A3E"/>
           </svg>
         </div>
-        <div class="cap"><b>Segno estratto</b>linee vettoriali + nodi delle regioni chiuse</div>
+        <div class="cap"><b>Segno estratto (atteso)</b>linee vettoriali + nodi delle regioni chiuse, disegno illustrativo</div>
       </div>
 
       <div class="showcase-panel" style="position:relative;">
         <div class="frame">
-          <span class="badge-illus">illustrazione</span>
-          <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Schema illustrativo del rilevamento del testo">
-            <rect width="300" height="300" fill="#241F17"/>
-            <circle cx="150" cy="150" r="130" fill="none" stroke="#EFE8D8" stroke-width="1" opacity="0.35"/>
-            <circle cx="150" cy="150" r="90" fill="none" stroke="#EFE8D8" stroke-width="1" opacity="0.3"/>
-            <g fill="none" stroke="#A3402C" stroke-width="1.3">
-              <rect x="128" y="20" width="44" height="14"/>
-              <rect x="128" y="266" width="52" height="14"/>
-              <rect x="22" y="143" width="58" height="14"/>
-              <rect x="220" y="143" width="60" height="14"/>
+          <span class="badge-illus">sovrapposizione illustrativa</span>
+          <img src="https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%" role="img" aria-label="Sovrapposizione illustrativa del rilevamento del testo atteso" style="position:absolute;inset:0;">
+            <g fill="rgba(36,31,23,0.55)" stroke="#A3402C" stroke-width="0.6">
+              <rect x="40" y="6" width="20" height="7"/>
+              <rect x="38" y="88" width="24" height="7"/>
+              <rect x="6" y="47" width="22" height="7"/>
+              <rect x="74" y="47" width="22" height="7"/>
             </g>
-            <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#EFE8D8" text-anchor="middle">
-              <text x="150" y="30">SEPTENTRIO</text>
-              <text x="150" y="276">MERIDIES</text>
-              <text x="51" y="153">OCCIDENS</text>
-              <text x="250" y="153">ORIENS</text>
+            <g font-family="IBM Plex Mono, monospace" font-size="4.6" fill="#EFE8D8" text-anchor="middle">
+              <text x="50" y="11">SEPTENTRIO</text>
+              <text x="50" y="93">MERIDIES</text>
+              <text x="17" y="51.5">OCCIDENS</text>
+              <text x="85" y="51.5">ORIENS</text>
             </g>
           </svg>
         </div>
-        <div class="cap"><b>Testo rilevato</b>etichette e posizione approssimativa (es. punti cardinali)</div>
+        <div class="cap"><b>Testo rilevato (atteso)</b>etichette e posizione approssimativa, disegno illustrativo</div>
       </div>
     </div>
+    <p class="field-hint" style="margin-top:0.9rem;">Vuoi vedere l'estrazione del testo <em>davvero</em> calcolata su questa stessa immagine? <button type="button" class="btn-quiet btn-sm" id="load-real-example-btn">Caricala nel demo qui sotto ↓</button> (serve comunque una tua API key, vedi sotto).</p>
   </div>
 </section>
 
@@ -141,7 +129,10 @@
 
     <div class="callout">
       <b>Prima di provarla</b>
-      Serve una tua API key Anthropic, usata solo dal tuo browser per chiamare direttamente <code>api.anthropic.com</code>: non viene salvata né inviata altrove da questo sito. Trattandosi di una chiamata diretta da pagina statica, alcuni browser possono bloccarla; in tal caso il metodo resta comunque documentabile descrivendolo, senza il demo.
+      Serve una tua API key Anthropic, usata solo dal tuo browser per chiamare direttamente <code>api.anthropic.com</code>: non viene salvata né inviata altrove da questo sito (per questo non è integrata nel sito stesso: nessuna key "di serie" può restare privata in una pagina statica pubblica). Trattandosi di una chiamata diretta da pagina statica, alcuni browser possono bloccarla; in tal caso il metodo resta comunque documentabile descrivendolo, senza il demo.
+      <br><br>
+      <b>Non hai una API key?</b>
+      Puoi comunque farti un'idea guardando <a href="#esempio-reale">l'esempio qui sopra</a>; per provare il demo con dati veri, puoi crearne una gratuitamente su <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a> (sezione "API Keys") — resta comunque solo nel tuo browser, per questa sessione.
     </div>
 
     <div class="demo-panel">

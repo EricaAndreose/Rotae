@@ -10,65 +10,74 @@ window.ISIDORO_CORPUS = [
       {
         "folio": "10 recto",
         "media": "22",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/0cf3df5f-ab6b-4634-af00-b168c01b9713",
+        "url": "img/ms184/10r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/0cf3df5f-ab6b-4634-af00-b168c01b9713",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "14 recto",
         "media": "30",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/81880cd1-abe0-462c-a8d7-146dc8bac9e2",
+        "url": "img/ms184/14r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/81880cd1-abe0-462c-a8d7-146dc8bac9e2",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "17 recto",
         "media": "36",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/7363d45b-47d9-4864-b0f5-82f75e793e4d",
+        "url": "img/ms184/17r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/7363d45b-47d9-4864-b0f5-82f75e793e4d",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "18 verso",
         "media": "39",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/b29e3de2-98e2-446b-9d1f-772ba6970445",
+        "url": "img/ms184/18v.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/b29e3de2-98e2-446b-9d1f-772ba6970445",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "19 verso",
         "media": "41",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/d4545ddd-bf60-40d1-be4d-ea46733afa59",
+        "url": "img/ms184/19v.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/d4545ddd-bf60-40d1-be4d-ea46733afa59",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "24 recto",
         "media": "59",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/d69b2093-dddb-40d2-8b9d-97815c8cfd9d",
+        "url": "img/ms184/24r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/d69b2093-dddb-40d2-8b9d-97815c8cfd9d",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "34 recto",
         "media": "69",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/0346a8d5-26ff-436b-8ffa-833bf92e550e",
+        "url": "img/ms184/34r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/0346a8d5-26ff-436b-8ffa-833bf92e550e",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "46 recto",
         "media": "93",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/439bcab5-c6e7-42a7-9b3f-f1a35f98251f",
+        "url": "img/ms184/46r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/439bcab5-c6e7-42a7-9b3f-f1a35f98251f",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       },
       {
         "folio": "56 recto",
         "media": "113",
-        "url": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/a7ba63e7-7c73-4756-af3d-a09eb33788eb",
+        "url": "img/ms184/56r.jpg",
+        "sourceUrl": "https://memoirevive.besancon.fr/ark:/48565/hn6gw95pxvr7/a7ba63e7-7c73-4756-af3d-a09eb33788eb",
         "title": "",
-        "embeddable": false
+        "embeddable": true
       }
     ],
     "century_label": "sec. VIII–IX ex. (775–800 ca.)",

@@ -16,30 +16,63 @@
     statusEl.classList.toggle('err', !!isErr);
   }
 
+  function applyImage(dataUrl, mediaType){
+    var img = new Image();
+    img.onload = function(){
+      currentImage = {
+        dataUrl: dataUrl,
+        mediaType: mediaType,
+        base64: dataUrl.split(',')[1],
+        width: img.naturalWidth,
+        height: img.naturalHeight
+      };
+      stage.innerHTML = '<img src="' + dataUrl + '" alt="Immagine caricata per il test">';
+      runBtn.disabled = false;
+      setStatus('Immagine caricata (' + img.naturalWidth + '×' + img.naturalHeight + 'px). Pronta per l\'estrazione.');
+    };
+    img.src = dataUrl;
+  }
+
   function loadFile(file){
     if (!file || !/^image\/(jpeg|png|webp|gif)$/.test(file.type)){
       setStatus('Formato non supportato: usa JPG, PNG o WebP.', true);
       return;
     }
     var reader = new FileReader();
-    reader.onload = function(e){
-      var dataUrl = e.target.result;
-      var img = new Image();
-      img.onload = function(){
-        currentImage = {
-          dataUrl: dataUrl,
-          mediaType: file.type,
-          base64: dataUrl.split(',')[1],
-          width: img.naturalWidth,
-          height: img.naturalHeight
-        };
-        stage.innerHTML = '<img src="' + dataUrl + '" alt="Immagine caricata per il test">';
-        runBtn.disabled = false;
-        setStatus('Immagine caricata (' + img.naturalWidth + '×' + img.naturalHeight + 'px). Pronta per l\'estrazione.');
-      };
-      img.src = dataUrl;
-    };
+    reader.onload = function(e){ applyImage(e.target.result, file.type); };
     reader.readAsDataURL(file);
+  }
+
+  // "Caricala nel demo" nella sezione dell'esempio reale: prende la stessa
+  // immagine del corpus mostrata sopra e la mette al posto di un file caricato
+  // a mano. Se il server IIIF non espone CORS, il fetch fallisce: in tal caso
+  // si apre l'immagine in una scheda a parte, da salvare e trascinare qui.
+  var REAL_EXAMPLE_URL = 'https://bibliotheque-numerique.ville-laon.fr/i/?IIIF=/e6/ab/63/b7/e6ab63b7-e5cf-4daa-8f00-b51895788754/iiif/t0000025.tif/full/754,/0/default.jpg';
+  var loadRealBtn = document.getElementById('load-real-example-btn');
+  if (loadRealBtn){
+    loadRealBtn.addEventListener('click', function(){
+      var prevText = loadRealBtn.textContent;
+      loadRealBtn.disabled = true;
+      loadRealBtn.textContent = 'Carico…';
+      fetch(REAL_EXAMPLE_URL, { mode: 'cors' })
+        .then(function(res){ if (!res.ok) throw new Error('HTTP ' + res.status); return res.blob(); })
+        .then(function(blob){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            applyImage(e.target.result, blob.type || 'image/jpeg');
+            stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(function(){
+          setStatus('Non è stato possibile caricare automaticamente l\'immagine (probabile blocco CORS del server): si apre in una scheda a parte — salvala e trascinala qui sotto.', true);
+          window.open(REAL_EXAMPLE_URL, '_blank', 'noopener');
+        })
+        .finally(function(){
+          loadRealBtn.disabled = false;
+          loadRealBtn.textContent = prevText;
+        });
+    });
   }
 
   dropZone.addEventListener('click', function(){ fileInput.click(); });
