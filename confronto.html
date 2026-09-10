@@ -26,28 +26,39 @@
   <div class="wrap">
     <p class="eyebrow">Strumento di lavoro</p>
     <h1>Confronto tra diagrammi</h1>
-    <p>Cerca e seleziona fino a sei pagine dall'elenco a sinistra — anche da manoscritti diversi — per osservarle affiancate. Trascina per spostare l'immagine, usa la rotellina o il pizzico per ingrandire; con «sincronizza» attivo, zoom e spostamento si applicano a tutti i pannelli insieme, utile per confrontare la stessa porzione di rota in due copie diverse.</p>
+    <p>Cerca e seleziona fino a sei pagine dall'elenco a sinistra — anche da manoscritti diversi — per osservarle affiancate. Trascina per spostare l'immagine, usa la rotellina o il pizzico per ingrandire; con «sincronizza» attivo, zoom e spostamento si applicano a tutti i pannelli insieme, utile per confrontare la stessa porzione di rota in due copie diverse. Ogni pannello si adatta da solo alla pagina intera e puoi richiudere l'elenco a sinistra per fare più spazio. Con «modalità annotazione» puoi segnare punti precisi del disegno o scrivere appunti generali: restano salvati nel tuo browser.</p>
   </div>
 </header>
 
 <section class="section">
   <div class="wrap">
-    <div class="confronto-layout">
-      <aside class="picker">
-        <h3>Pagine disponibili</h3>
-        <input class="picker-search" id="picker-search" type="search" placeholder="Cerca per manoscritto, folio, titolo…">
-        <div class="picker-list" id="picker-list"></div>
-        <p class="picker-hint">La selezione è condivisa con la pagina Corpus ed è salvata solo nel tuo browser.</p>
-        <button class="btn-quiet btn-sm" id="clear-all" style="margin-top:0.6rem;">Svuota selezione</button>
+    <div class="confronto-layout" id="confronto-layout">
+      <aside class="picker" id="picker">
+        <div class="picker-head">
+          <h3>Pagine disponibili</h3>
+          <button class="picker-toggle" id="picker-toggle" type="button" aria-expanded="true" aria-controls="picker" title="Nascondi l'elenco per fare spazio">«</button>
+        </div>
+        <div class="picker-body" id="picker-body">
+          <input class="picker-search" id="picker-search" type="search" placeholder="Cerca per manoscritto, folio, titolo…">
+          <div class="picker-list" id="picker-list"></div>
+          <p class="picker-hint">La selezione è condivisa con la pagina Corpus ed è salvata solo nel tuo browser.</p>
+          <button class="btn-quiet btn-sm" id="clear-all" style="margin-top:0.6rem;">Svuota selezione</button>
+        </div>
       </aside>
 
       <div class="compare-stage-wrap">
         <div class="compare-toolbar">
+          <button class="picker-reopen" id="picker-reopen" type="button" hidden title="Mostra l'elenco delle pagine">» Pagine</button>
           <label style="display:flex; align-items:center; gap:0.5em; font-size:0.85rem; color:var(--ink-soft);">
             <input type="checkbox" id="sync-toggle" checked style="accent-color:var(--lapis);">
             Sincronizza zoom e spostamento
           </label>
+          <label style="display:flex; align-items:center; gap:0.5em; font-size:0.85rem; color:var(--ink-soft);">
+            <input type="checkbox" id="annotate-toggle" style="accent-color:var(--minium);">
+            Modalità annotazione (clicca sull'immagine per segnare un punto)
+          </label>
           <span class="spacer"></span>
+          <button class="btn-quiet btn-sm" id="fit-all" type="button">Adatta tutte le viste</button>
           <a class="btn-quiet btn-sm" href="corpus.html">+ Aggiungi dal corpus</a>
         </div>
         <div class="compare-stage" id="compare-stage"></div>

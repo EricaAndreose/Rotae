@@ -196,18 +196,19 @@
     document.getElementById('lb-title').textContent = ms.siglum + (page.title ? ' — ' + page.title : '');
     document.getElementById('lb-meta').textContent = 'f. ' + page.folio + ' · ' + ms.institution;
     var openLink = document.getElementById('lb-open-original');
-    if (page.url){
-      openLink.href = page.url; openLink.hidden = false;
+    var src = V.sourceUrl(page);
+    if (src){
+      openLink.href = src; openLink.hidden = false;
     } else {
       openLink.hidden = true;
     }
 
-    panzoom.reset();
     if (V.isEmbeddable(page)){
       lbImg.style.display = '';
       lbImg.src = page.url;
       lbImg.alt = V.folioLabel(ms, page);
       document.getElementById('lb-noimg').hidden = true;
+      panzoom.onImageChanged();
     } else {
       lbImg.style.display = 'none';
       document.getElementById('lb-noimg').hidden = false;

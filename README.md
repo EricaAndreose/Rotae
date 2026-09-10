@@ -27,10 +27,35 @@ I dati di manoscritti e pagine vivono in `js/data.js`, nell'oggetto
 `window.ISIDORO_CORPUS`. È un array di manoscritti, ciascuno con un array `pages`;
 ogni pagina ha `folio`, `url` (immagine) e `title` (facoltativo). Il campo
 `embeddable` indica se l'URL può essere mostrato direttamente come `<img>` (URL
-IIIF Image API) oppure va offerto solo come link esterno (es. pagine "ark" di
-alcuni portali che non restituiscono un file immagine grezzo). Per aggiungere un
-manoscritto o una pagina, modifica direttamente questo file seguendo la stessa
-struttura.
+IIIF Image API, oppure una copia locale in `img/`) oppure va offerto solo come
+link esterno (es. pagine "ark" di alcuni portali che non restituiscono un file
+immagine grezzo). Il campo opzionale `sourceUrl` punta invece alla scheda
+originale del portale, quando `url` è una copia locale: viene usato dal link
+"Apri la scheda / immagine originale". Per aggiungere un manoscritto o una
+pagina, modifica direttamente questo file seguendo la stessa struttura — la
+tabella nella sezione "Dati del corpus" di `index.html` legge lo stesso file,
+quindi ogni modifica è visibile lì subito, senza bisogno di aggiornare altro.
+
+### Immagini locali (Ms. 184, Besançon)
+
+Il portale di Besançon non offre un URL immagine incorporabile (solo pagine
+"ark" del visore), quindi le immagini di Ms. 184 vanno salvate a mano in
+`img/ms184/`, con un nome file numerato come il folio di appartenenza —
+convenzione e elenco esatto dei nomi attesi in `img/ms184/README.md`.
+
+## Confronto: zoom, pannelli e annotazioni
+
+Nella pagina Confronto, ogni pannello si adatta automaticamente alla pagina
+intera all'apertura e con «Reimposta» (lo zoom minimo/massimo è calcolato
+in proporzione a questa vista, non fisso, così resta utile anche quando i
+pannelli sono piccoli confrontando più di due pagine). L'elenco laterale
+delle pagine disponibili si può richiudere (««») per fare spazio; con due
+sole pagine selezionate i pannelli sono più grandi. La «modalità
+annotazione» permette di segnare punti precisi sul disegno (restano
+ancorati al punto esatto dell'immagine, indipendentemente da zoom/
+spostamento) o di scrivere appunti generali per pagina: tutto è salvato
+solo nel browser (`localStorage`, chiavi `isidoro_annotations_v1` e
+`isidoro_notes_v1`), non su un server.
 
 ## Nota sul demo live di estrazione IA
 

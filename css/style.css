@@ -287,6 +287,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .timeline .when{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-faint); }
 .timeline p{ color: var(--ink-soft); margin-top: 0.3em; }
 
+/* ---------- Vista tabellare dei dati (index) ---------- */
+.datatable-toolbar{
+  display:flex; align-items:center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.9rem;
+}
+.datatable-search{
+  min-width: 240px; flex: 1 1 240px; padding: 0.5em 0.7em; border: 1px solid var(--rule);
+  border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; background: var(--paper-raised);
+}
+.datatable-toolbar .spacer{ flex: 0 0 0; }
+.datatable-count{ font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-faint); white-space: nowrap; }
+.datatable-wrap{
+  border: 1px solid var(--rule); border-radius: var(--radius); overflow: auto; max-height: 520px;
+  background: var(--paper-raised);
+}
+.datatable{ width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.datatable thead th{
+  position: sticky; top: 0; z-index: 1; text-align: left; font-family: var(--font-mono); font-weight: 500;
+  font-size: 0.7rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-soft);
+  background: var(--paper-deep); padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.datatable td{
+  padding: 0.55em 0.7em; border-bottom: 1px solid var(--rule-soft); vertical-align: top;
+}
+.datatable tr.datatable-group-start td{ border-top: 2px solid var(--rule); }
+.datatable .dt-sub{ color: var(--ink-faint); font-size: 0.75rem; }
+.datatable .dt-url code{ font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
+.datatable .dt-yes{ color: var(--verdigris-dark); }
+.datatable .dt-no{ color: var(--ink-faint); }
+.datatable .dt-actions{ display:flex; gap: 0.4em; white-space: nowrap; }
+
 /* ---------- Footer ---------- */
 .site-footer{
   padding: 2.2rem 0 3rem; color: var(--ink-faint); font-size: 0.86rem;
@@ -384,12 +415,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    Confronto page
    ============================================================ */
 .confronto-layout{ display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem; align-items: start; }
-@media (max-width: 900px){ .confronto-layout{ grid-template-columns: 1fr; } }
+@media (max-width: 900px){
+  .confronto-layout{ grid-template-columns: 1fr; }
+  .confronto-layout.picker-collapsed{ grid-template-columns: 1fr; }
+}
 .picker{
   border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-raised);
   padding: 1rem; position: sticky; top: 78px;
 }
-.picker h3{ font-size: 0.95rem; margin-bottom: 0.7rem; }
+.picker-head{ display:flex; align-items:center; justify-content: space-between; gap: 0.6rem; }
+.picker h3{ font-size: 0.95rem; margin: 0; }
+.picker-toggle{
+  flex: none; width: 28px; height: 28px; border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--paper); color: var(--ink-soft); cursor: pointer; font-family: var(--font-mono);
+  line-height: 1;
+}
+.picker-toggle:hover{ border-color: var(--ink); color: var(--ink); }
+.picker-body{ margin-top: 0.8rem; }
+.confronto-layout.picker-collapsed{ grid-template-columns: 44px 1fr; }
+.confronto-layout.picker-collapsed .picker{ padding: 0.6rem 0.5rem; }
+.confronto-layout.picker-collapsed .picker-body{ display: none; }
+.picker-reopen{
+  font-family: var(--font-mono); font-size: 0.78rem; padding: 0.42em 0.75em; border-radius: 20px;
+  border: 1px solid var(--rule); background: var(--paper-raised); color: var(--ink-soft); cursor: pointer;
+}
+.picker-reopen:hover{ border-color: var(--ink); color: var(--ink); }
 .picker-search{
   width: 100%; padding: 0.5em 0.7em; border: 1px solid var(--rule); border-radius: var(--radius);
   font-family: var(--font-body); font-size: 0.88rem; margin-bottom: 0.8rem; background: var(--paper);
@@ -406,21 +456,43 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .compare-stage{ min-height: 420px; }
 .compare-toolbar{
-  display:flex; gap: 0.6rem; align-items:center; margin-bottom: 0.9rem; flex-wrap: wrap;
+  display:flex; gap: 1rem; align-items:center; margin-bottom: 0.9rem; flex-wrap: wrap;
 }
 .compare-toolbar .spacer{ flex: 1; }
 .compare-empty{
   border: 1px dashed var(--rule); border-radius: var(--radius); padding: 3rem 1.5rem;
   text-align: center; color: var(--ink-soft); font-size: 0.94rem;
 }
-.compare-grid{ display: grid; gap: 0.9rem; }
-.compare-panel{
-  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--ink);
-  aspect-ratio: 4/5; position: relative; overflow: hidden; touch-action: none;
+.compare-grid{ display: grid; gap: 1.1rem; align-items: start; }
+
+/* Pannelli più grandi quando si confrontano solo una o due pagine */
+.compare-grid--n1{ max-width: 760px; margin: 0 auto; }
+.compare-grid--n1 .compare-panel-stage{ aspect-ratio: 3/4; min-height: 62vh; }
+.compare-grid--n2 .compare-panel-stage{ aspect-ratio: 3/4; min-height: 56vh; }
+.compare-grid--n3 .compare-panel-stage{ aspect-ratio: 4/5; min-height: 42vh; }
+.compare-grid--nmany .compare-panel-stage{ aspect-ratio: 1/1; min-height: 30vh; }
+@media (max-width: 700px){
+  .compare-grid--n1 .compare-panel-stage,
+  .compare-grid--n2 .compare-panel-stage{ min-height: 48vh; }
 }
-.compare-panel img{
+
+.compare-panel{
+  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-raised);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.compare-panel-stage{
+  background: var(--ink); position: relative; overflow: hidden; touch-action: none; flex: none;
+}
+.compare-panel-stage img{
   position: absolute; top:50%; left:50%; max-width:none; transform-origin: center; user-select:none;
 }
+.annot-layer{
+  position: absolute; top: 50%; left: 50%; transform-origin: center; pointer-events: none; overflow: visible;
+}
+#compare-stage.annotate-active .compare-panel-stage{ cursor: crosshair; }
+.annot-layer .pin-marker{ pointer-events: auto; cursor: pointer; }
+.annot-layer .pin-dot{ fill: var(--minium); fill-opacity: 0.88; stroke: #fff; }
+.annot-layer .pin-num{ font-family: var(--font-mono); fill: #fff; text-anchor: middle; pointer-events: none; }
 .compare-caption{
   position: absolute; left:0; right:0; bottom:0; padding: 0.5em 0.7em;
   background: linear-gradient(transparent, rgba(20,17,11,0.82));
@@ -431,6 +503,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border: none; background: rgba(20,17,11,0.55); color: #fff; cursor: pointer; font-size: 0.85rem;
   display:flex; align-items:center; justify-content:center;
 }
+
+/* ---------- Annotazioni e appunti sotto ogni pannello ---------- */
+.compare-annot-panel{ padding: 0.8em 0.85em 0.9em; border-top: 1px solid var(--rule); }
+.compare-annot-head{
+  display:flex; align-items:center; justify-content: space-between; gap: 0.6em;
+  font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-soft); margin-bottom: 0.5em;
+}
+.compare-pin-list{ list-style: none; margin: 0 0 0.7em; padding: 0; display:flex; flex-direction:column; gap: 0.4em; max-height: 160px; overflow-y: auto; }
+.compare-pin-empty{ font-size: 0.8rem; color: var(--ink-faint); font-style: italic; }
+.compare-pin-row{ display:flex; align-items: flex-start; gap: 0.4em; }
+.pin-num-badge{
+  flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--minium); color: #fff;
+  font-family: var(--font-mono); font-size: 0.68rem; display:flex; align-items:center; justify-content:center;
+  margin-top: 0.15em;
+}
+.compare-pin-row textarea{
+  flex: 1; resize: vertical; border: 1px solid var(--rule); border-radius: var(--radius);
+  font-family: var(--font-body); font-size: 0.82rem; padding: 0.35em 0.5em; background: var(--paper);
+}
+.compare-pin-del{
+  flex: none; border: none; background: transparent; color: var(--ink-faint); cursor: pointer;
+  font-size: 0.95rem; line-height: 1; padding: 0.2em 0.3em;
+}
+.compare-pin-del:hover{ color: var(--minium-dark); }
+.compare-note{
+  width: 100%; resize: vertical; border: 1px solid var(--rule); border-radius: var(--radius);
+  font-family: var(--font-body); font-size: 0.83rem; padding: 0.45em 0.6em; background: var(--paper);
+}
+.compare-note-status{ display:block; font-family: var(--font-mono); font-size: 0.68rem; color: var(--verdigris-dark); min-height: 1.4em; margin-top: 0.25em; }
 
 /* ============================================================
    Estrazione AI page
