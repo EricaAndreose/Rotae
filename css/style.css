@@ -558,16 +558,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .showcase-panel .frame img{ width: 100%; height: 100%; object-fit: contain; }
 .showcase-panel .cap{ padding: 0.7em 0.85em; font-size: 0.82rem; color: var(--ink-soft); }
 .showcase-panel .cap b{ color: var(--ink); display:block; font-size: 0.86rem; margin-bottom: 0.15em; }
-.badge-illus{
-  position:absolute; top: 0.5em; left: 0.5em; background: rgba(163,64,44,0.92); color: #fff;
-  font-family: var(--font-mono); font-size: 0.62rem; padding: 0.25em 0.55em; border-radius: 20px;
-  letter-spacing: 0.02em; z-index: 2;
-}
-/* Immagine reale "schiarita" (contrasto/luminosità) sotto le sovrapposizioni,
-   per far risaltare meglio segni e parole — resta l'immagine vera, solo filtrata. */
-.showcase-clarified{ filter: contrast(1.18) brightness(1.1) saturate(1.12); }
-.showcase-img-stack{ position: absolute; inset: 0; }
-.showcase-overlay{ position: absolute; inset: 0; width: 100%; height: 100%; }
+.showcase--single{ grid-template-columns: 1fr; max-width: 300px; margin: 1.6rem auto 0; }
 .showcase-legend{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.4rem; }
 @media (max-width: 700px){ .showcase-legend{ grid-template-columns: 1fr; } }
 .showcase-legend h4{
